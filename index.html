@@ -16,6 +16,7 @@
             <ul>
                 <li><a href="#about">About</a></li>
                 <li><a href="#services">Services</a></li>
+                <li><a href="#volunteer">Volunteer</a></li>
                 <li><a href="#contact">Contact</a></li>
                 <li><a href="##" class="nav-button">Get Help</a></li>
             </ul>
@@ -56,6 +57,57 @@
             </div>
         </section>
 
+        <section id="volunteer" class="volunteer-section">
+            <div class="volunteer-content">
+                <div class="volunteer-info">
+                    <h2>Make a Difference</h2>
+                    <p>Join our team of dedicated volunteers and help us support people in crisis. Whether you can offer a few hours a week or more, your contribution matters.</p>
+                    <ul class="volunteer-benefits">
+                        <li>Comprehensive training provided</li>
+                        <li>Flexible scheduling options</li>
+                        <li>Make a real impact in your community</li>
+                        <li>Join a supportive team of helpers</li>
+                    </ul>
+                </div>
+                <div class="volunteer-form-container">
+                    <h3>Volunteer Sign Up</h3>
+                    <form class="volunteer-form" id="volunteerForm">
+                        <div class="form-group">
+                            <label for="fullName">Full Name *</label>
+                            <input type="text" id="fullName" name="fullName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number *</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="availability">Availability *</label>
+                            <select id="availability" name="availability" required>
+                                <option value="">Select your availability</option>
+                                <option value="weekdays">Weekdays</option>
+                                <option value="weekends">Weekends</option>
+                                <option value="evenings">Evenings</option>
+                                <option value="flexible">Flexible</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="experience">Relevant Experience</label>
+                            <textarea id="experience" name="experience" rows="4" placeholder="Tell us about any relevant experience or skills..."></textarea>
+                        </div>
+                        <div class="form-group checkbox-group">
+                            <input type="checkbox" id="terms" name="terms" required>
+                            <label for="terms">I agree to background check and training requirements *</label>
+                        </div>
+                        <button type="submit" class="cta-button primary">Submit Application</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
         <section id="contact" class="cta-bottom-section">
             <h2>Don't Wait. Reach Out Today</h2>
             <p>If you or someone you know is in crisis, please don't hesitate to contact us. We're here to help.</p>
@@ -71,6 +123,28 @@
             <a href="#" class="social-icon"><img src="assets/social/instagram.png" alt="Instagram"></a>
         </div>
     </footer>
+
+    <script>
+        // Simple form validation and submission handler
+        document.getElementById('volunteerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const formData = {
+                fullName: document.getElementById('fullName').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                availability: document.getElementById('availability').value,
+                experience: document.getElementById('experience').value
+            };
+            
+            // Display success message
+            alert('Thank you for your interest in volunteering! We will contact you soon at ' + formData.email);
+            
+            // Reset form
+            this.reset();
+        });
+    </script>
 
 </body>
 </html>
