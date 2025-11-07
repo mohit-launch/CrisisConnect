@@ -173,7 +173,7 @@
         /* User Type Tabs */
         .user-type-tabs {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(2, 1fr);
             gap: 8px;
             margin-bottom: 30px;
             background: #f1f5f9;
@@ -231,10 +231,6 @@
         .info-header h3 {
             font-size: 18px;
             font-weight: 600;
-        }
-
-        .info-header.victim {
-            color: #dc2626;
         }
 
         .info-header.volunteer {
@@ -387,7 +383,6 @@
         }
 
         /* Icons using Unicode */
-        .icon-alert::before { content: '⚠️'; }
         .icon-heart::before { content: '❤️'; }
         .icon-shield::before { content: '🛡️'; }
         .icon-users::before { content: '👥'; }
@@ -407,15 +402,7 @@
                 <p class="hero-tagline">Connecting communities in times of crisis</p>
                 
                 <div class="features">
-                    <div class="feature">
-                        <div class="feature-icon">
-                            <span class="icon-alert"></span>
-                        </div>
-                        <div class="feature-content">
-                            <h3>Quick Relief Requests</h3>
-                            <p>Get help when you need it most</p>
-                        </div>
-                    </div>
+                    >
                     
                     <div class="feature">
                         <div class="feature-icon">
@@ -469,7 +456,13 @@
                     </div>
 
                     <!-- User Type Info -->
-                   
+                    <div class="user-type-info" id="userTypeInfo">
+                        <div class="info-header Volunteer">
+                            <span class="icon-heart"></span>
+                            <h3 style="color: #f97316;">I Can Help</h3>
+                        </div>
+                        <p class="info-description">Offer resources and support</p>
+                    </div>
 
                     <!-- Login Form -->
                     <form id="loginForm" onsubmit="handleLogin(event)">
@@ -504,7 +497,7 @@
                     <div class="card-footer">
                         <p>
                             Don't have an account? 
-                            <a href="#" class="signup-link">Sign up</a>
+                            <a href="signup.html" class="signup-link">Sign up</a>
                         </p>
                     </div>
                 </div>
@@ -520,12 +513,6 @@
     <script>
         // User type configuration
         const userTypes = {
-            victim: {
-                icon: '⚠️',
-                title: 'I Need Help',
-                description: 'Request assistance during crisis',
-                className: 'victim'
-            },
             volunteer: {
                 icon: '❤️',
                 title: 'I Can Help',
@@ -580,24 +567,6 @@
                 email: email,
                 password: '***hidden***'
             });
-            
-            // Here you would normally send the data to your backend
-            alert(`Login as ${currentUserType}\nEmail: ${email}\n\nThis is a demo. Backend authentication will be implemented later.`);
-            
-            // In production, you would do:
-            // fetch('/api/login', {
-            //     method: 'POST',
-            //     headers: { 'Content-Type': 'application/json' },
-            //     body: JSON.stringify({ userType: currentUserType, email, password })
-            // })
-            // .then(response => response.json())
-            // .then(data => {
-            //     if (data.success) {
-            //         window.location.href = '/dashboard';
-            //     } else {
-            //         alert('Login failed: ' + data.message);
-            //     }
-            // });
         }
 
         // Form validation enhancement

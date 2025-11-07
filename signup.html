@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CrisisConnect - Sign Up</title>
+    <meta name="description" content="CrisisConnect - Join our community of support">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            color: #1e293b;
+            background: linear-gradient(135deg, #f0f4f8 0%, #ffffff 100%);
+            min-height: 100vh;
+        }
+
+        .container { display: flex; min-height: 100vh; }
+
+        /* Left Hero Section */
+        .hero-section {
+            flex: 1;
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.95), rgba(249, 115, 22, 0.9)),
+                        url('https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.9), rgba(249, 115, 22, 0.85));
+            z-index: 1;
+        }
+
+        .hero-content { position: relative; z-index: 2; }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .logo-icon {
+            width: 48px; height: 48px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 24px;
+        }
+
+        .logo h1 { font-size: 48px; font-weight: 700; }
+
+        .hero-tagline { font-size: 24px; margin-bottom: 40px; opacity: 0.95; }
+
+        /* Signup Section */
+        .signup-section {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+
+        .signup-container { width: 100%; max-width: 480px; }
+
+        .signup-card {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px -10px rgba(37, 99, 235, 0.3);
+            padding: 40px;
+            border: 2px solid #e2e8f0;
+        }
+
+        .card-header { text-align: center; margin-bottom: 30px; }
+        .card-header h2 { font-size: 28px; margin-bottom: 8px; color: #1e293b; }
+        .card-header p { color: #64748b; font-size: 14px; }
+
+        .form-group { margin-bottom: 20px; }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #334155;
+            font-size: 14px;
+        }
+        input {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 15px;
+            transition: all 0.3s ease;
+        }
+        input:focus {
+            outline: none;
+            border-color: #2563eb;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, #2563eb, #3b82f6);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px -2px rgba(37, 99, 235, 0.4);
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px -4px rgba(37, 99, 235, 0.5);
+        }
+
+        .card-footer {
+            text-align: center;
+            margin-top: 25px;
+            padding-top: 25px;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .card-footer p { color: #64748b; font-size: 14px; }
+        .login-link { color: #2563eb; font-weight: 600; text-decoration: none; }
+        .login-link:hover { text-decoration: underline; }
+
+        @media (max-width: 1024px) { .hero-section { display: none; } }
+        @media (max-width: 640px) { .signup-card { padding: 30px 20px; } }
+
+        .icon-users::before { content: '👥'; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Left Hero Section -->
+        <div class="hero-section">
+            <div class="hero-content">
+                <div class="logo">
+                    <div class="logo-icon"><span class="icon-users"></span></div>
+                    <h1>CrisisConnect</h1>
+                </div>
+                <p class="hero-tagline">Join us in connecting communities in times of crisis</p>
+            </div>
+        </div>
+
+        <!-- Signup Section -->
+        <div class="signup-section">
+            <div class="signup-container">
+                <div class="signup-card">
+                    <div class="card-header">
+                        <h2>Create an Account</h2>
+                        <p>Join the CrisisConnect community</p>
+                    </div>
+
+                    <form id="signupForm" onsubmit="handleSignup(event)">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" placeholder="Your full name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" placeholder="your.email@example.com" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" id="password" name="password" placeholder="Enter password" required minlength="6">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="confirmPassword">Confirm Password</label>
+                            <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm password" required>
+                        </div>
+
+                        <button type="submit" class="submit-btn">Sign Up</button>
+                    </form>
+
+                    <div class="card-footer">
+                        <p>Already have an account? <a href="login.html" class="login-link">Sign in</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function handleSignup(event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+
+            if (password !== confirmPassword) {
+                alert("Passwords do not match!");
+                return;
+            }
+
+            console.log("Signup attempt:", { name, email, password: "***hidden***" });
+            alert("Account created successfully!");
+        }
+    </script>
+</body>
+</html>
