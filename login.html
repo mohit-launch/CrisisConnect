@@ -557,17 +557,33 @@
 
         // Handle login form submission
         function handleLogin(event) {
-            event.preventDefault();
-            
-            const email = document.getElementById('email').value;
-            const password = document.getElementById('password').value;
-            
-            console.log('Login attempt:', {
-                userType: currentUserType,
-                email: email,
-                password: '***hidden***'
-            });
-        }
+    event.preventDefault();
+
+    const email = document.getElementById('email').value.trim();
+    const password = document.getElementById('password').value.trim();
+
+    // Basic validation
+    if (!email || !password) {
+        alert("Please fill in all fields.");
+        return;
+    }
+
+    console.log('Login attempt:', {
+        userType: currentUserType,
+        email: email,
+        password: '***hidden***'
+    });
+
+    // Redirect based on user type
+    if (currentUserType === 'volunteer') {
+        window.location.href = 'volunteer-feed-page.html';
+    } else if (currentUserType === 'admin') {
+        alert("Admin login functionality not yet connected.");
+    } else {
+        alert("Please select a valid user type.");
+    }
+}
+
 
         // Form validation enhancement
         const emailInput = document.getElementById('email');
